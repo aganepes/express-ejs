@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head') %>
+<body>
+    <%- include("../includes/header")%>
+    <main>
+        <% if(posts.length==0){ %>
+           <p>Not have your posts.</p>
+        <%} else {%>
+        <ul>
+        <% posts.forEach(post =>{ %>
+            <li>
+                <% if(post.update){%>
+                    <form action="/posts/item/<%=post.id%>" method="post">
+                        <h2>Title</h2>
+                        <input type="text" name="title" value="<%= post.title %>">
+                        <h4>Content</h4>
+                        <textarea name="content" cols="20" rows="5"><%=post.content%></textarea>
+                        <br><button type="submit">Save</button>
+                    </form>
+                <%}else{%>
+                   <a href="/posts/item/<%=post.id%>"><%= post.title %></a>
+                    <p><%= new Date(post.time).getDay()%>/<%= new Date(post.time).getMonth()+1%>/<%= new Date(post.time).getFullYear()%></p>
+                <%}%>
+                <a href="/postupdate/<%=post.id%>"><button>Update</button></a>
+                <a href="/postdelete/<%=post.id%>"><button>Delete</button></a>
+            </li>
+        <% }) %>
+        </ul>
+        <% } %>
+    </main>
+    <%-include('../includes/footer')%>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<header>
+    <h2><a href="/">Our App</a></h2>
+    <nav>
+        <% if(user){%>
+            <a href="/posts/user/<%=user.id%>">Your Posts</a>
+            <a href="/newpost">New Post</a>
+            <a href="/loginOut">Login Out</a>
+        <%}else{%>
+            <a href="/login">Login</a>
+            <a href="/create-login">Create login</a>
+        <%}%>
+    </nav>
+    </header>

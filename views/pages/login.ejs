@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head')%>
+<body>
+    <%- include("../includes/header")%>
+    <main>
+        <% errors.forEach(error =>{%>
+            <p class='notice'><%=error%></p>
+        <% })%>
+        <form action="/control-login" method="post">
+        <fieldset>
+            <legend>Input a login</legend>
+            <label for="username"><small>Username</small></label>
+            <input type="text" name="username" id="username" autocomplete='off'>
+            <br>
+            <label for="password"><small>Password</small></label>
+            <input type="password" name="password" id="password" autocomplete='off'>
+            <br/>
+            <button>Sign Up</button>
+        </fieldset>
+        </form>
+    </main>
+        <%- include('../includes/footer')%>
+</body>
+</html>

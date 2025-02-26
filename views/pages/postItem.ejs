@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head') %>
+<body>
+    <%- include("../includes/header")%>
+    <main>
+        <h1><%=post.title%></h1>
+        <small>By &nbsp; <%=post.name%></small> <br>
+        <small>Time <%= new Date(post.time).getDay()%>/<%= new Date(post.time).getMonth()+1%>/<%= new Date(post.time).getFullYear()%></small>
+        <br>
+        <%-markedContent%>
+    </main>
+    <%-include('../includes/footer')%>
+</body>
+</html>

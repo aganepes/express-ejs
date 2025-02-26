@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head')%>
+<body>
+    <%- include("../includes/header")%>
+    <main>
+         <% if(posts.length==0){ %>
+            <p>Not posts.</p>
+        <%} else {%>
+        <ul>
+        <% posts.forEach(post =>{ %>
+            <li>
+                <div style="display:"flex"">
+                   <a href="/posts/item/<%=post.id%>"><%= post.title %></a>
+                   <p>By <%= post.name %> </p>
+                   <p><%= new Date(post.time).getDay()%>/<%= new Date(post.time).getMonth()+1%>/<%= new Date(post.time).getFullYear()%></p>
+                </div> 
+            </li>
+        <% }) %>
+        </ul>
+        <% } %>
+    </main>
+    <%- include('../includes/footer')%>
+</body>
+</html>
